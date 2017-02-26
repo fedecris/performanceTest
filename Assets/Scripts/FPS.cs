@@ -45,7 +45,7 @@ public class FPS : MonoBehaviour {
 			lastFramesFPSSum = 0;
 		}
 
-		string text = string.Format ("{0:0.0} ms ({1:0} fps {2:0} avg ", msec, fps, lastFramesFPSAvg) + ("Fastest"==Menu.quality?"Hi":"Lo") + " qty) " + info;
+		string text = string.Format ("{0:0.0} ms ({1:0} fps {2:0} avg ", msec, fps, lastFramesFPSAvg) + ("Fastest"==Menu.quality?"Lo":"Hi") + " qty) " + info;
 		GUI.Label(rect, text, style);
 
 		if (GUI.Button(new Rect(w-100, h-40, 100, 40), "STOP")) {
