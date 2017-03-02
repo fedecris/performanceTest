@@ -11,7 +11,9 @@ public class FPS : MonoBehaviour {
 	protected float lastFramesFPSSum = 0;
 	protected float lastFramesFPSAvg = 0;
 	protected int   lastFramesCount = 0;
-	protected int   lastFramesMax = 300;
+	protected int   lastFramesMax = 500;
+
+	protected bool newLogEntry = false;
 
 	// Use this for initialization
 	void Start () {
@@ -43,10 +45,15 @@ public class FPS : MonoBehaviour {
 			lastFramesFPSAvg = lastFramesFPSSum / (float)lastFramesMax;
 			lastFramesCount = 0;
 			lastFramesFPSSum = 0;
+			newLogEntry = true;
 		}
 
 		string text = string.Format ("{0:0.0} ms ({1:0} fps {2:0} avg ", msec, fps, lastFramesFPSAvg) + ("Fastest"==Menu.quality?"Lo":"Hi") + " qty) " + info;
 		GUI.Label(rect, text, style);
+		if (newLogEntry) {
+			Menu.logContent = Menu.logContent + "\n" + text;
+			newLogEntry = false;
+		}
 
 		if (GUI.Button(new Rect(w-100, h-40, 100, 40), "STOP")) {
 			SceneManager.LoadScene ("Main");
