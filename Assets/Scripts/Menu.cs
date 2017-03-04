@@ -26,22 +26,27 @@ public class Menu : MonoBehaviour {
 	void OnGUI() {
 
 		if (GUI.Button(new Rect(0, 0, buttonWitdh, buttonHeight), "Test1. Basic mesh rendering")) {
+			FPS.info = "";
 			logContent = "";
 			SceneManager.LoadScene ("Test01");
 		}
 		if (GUI.Button(new Rect(0, 40, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
+			FPS.info = "";
 			logContent = "";
 			SceneManager.LoadScene ("Test02");
 		}
 		if (GUI.Button(new Rect(0, 80, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
+			FPS.info = "";
 			logContent = "";
 			SceneManager.LoadScene ("Test03");
 		}
 		if (GUI.Button(new Rect(0, 120, buttonWitdh, buttonHeight), "Test4. Textures")) {
+			FPS.info = "";
 			logContent = "";
 			SceneManager.LoadScene ("Test04");
 		}
 		if (GUI.Button(new Rect(0, 160, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
+			FPS.info = "";
 			logContent = "";
 			SceneManager.LoadScene ("Test05");
 		}

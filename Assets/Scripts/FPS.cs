@@ -11,7 +11,7 @@ public class FPS : MonoBehaviour {
 	protected float lastFramesFPSSum = 0;
 	protected float lastFramesFPSAvg = 0;
 	protected int   lastFramesCount = 0;
-	protected int   lastFramesMax = 500;
+	protected int   lastFramesMax = 100;
 
 	protected bool newLogEntry = false;
 

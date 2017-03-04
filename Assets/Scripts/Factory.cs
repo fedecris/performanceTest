@@ -12,7 +12,7 @@ public class Factory : MonoBehaviour {
 	/** Factor de crecimiento.  Por ejemplo Si es 2, se van duplicando (1, 2, 4, 8...). Si es 10 crece un orden de magnitud cada vez, etc. (1, 10, 100, 1000...) */
 	public int incrementFactor = 2;
 	/** Limite de objetos a crear */
-	protected int maxObjects = 2000;
+	protected int maxObjects = 10000;
 
 	/** Numero de instancias actual */
 	protected int instanceQty = 0; 
@@ -39,7 +39,7 @@ public class Factory : MonoBehaviour {
 			if (incrementFactor == 1)
 				instanceQty++;
 			for (int i = 1; i <= instanceQty - oldQty; i++) {
-				Instantiate (objeto, new Vector3 (0, 0, 0), Quaternion.identity);
+				Instantiate (objeto, new Vector3 (Random.Range(-1f, 2f), 0, Random.Range(-1f, 2f)), Quaternion.identity);
 			}
 			elapsedTime = 0;	
 			FPS.info = "Qty: " + instanceQty;
