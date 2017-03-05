@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Test04.unity
   - enabled: 1
     path: Assets/Test05.unity
+  - enabled: 1
+    path: Assets/Test06.unity
