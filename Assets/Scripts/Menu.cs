@@ -25,48 +25,51 @@ public class Menu : MonoBehaviour {
 
 	void OnGUI() {
 
+		// Test Set
 		if (GUI.Button(new Rect(0, 0, buttonWitdh, buttonHeight), "Test1. Basic mesh rendering")) {
-			FPS.info = "";
-			logContent = "";
-			SceneManager.LoadScene ("Test01");
+			loadLevel("Test01");
 		}
 		if (GUI.Button(new Rect(0, 40, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
-			FPS.info = "";
-			logContent = "";
-			SceneManager.LoadScene ("Test02");
+			loadLevel("Test02");
 		}
 		if (GUI.Button(new Rect(0, 80, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
-			FPS.info = "";
-			logContent = "";
-			SceneManager.LoadScene ("Test03");
+			loadLevel("Test03");
 		}
-		if (GUI.Button(new Rect(0, 120, buttonWitdh, buttonHeight), "Test4. Textures")) {
-			FPS.info = "";
-			logContent = "";
-			SceneManager.LoadScene ("Test04");
+		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 0, buttonWitdh, buttonHeight), "Test4. Textures")) {
+			loadLevel("Test04");
 		}
-		if (GUI.Button(new Rect(0, 160, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
-			FPS.info = "";
-			logContent = "";
-			SceneManager.LoadScene ("Test05");
+		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 40, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
+			loadLevel("Test05");
+		}
+		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 80, buttonWitdh, buttonHeight), "Test6. Physics")) {
+			loadLevel("Test06");
 		}
 
-		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 0, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
+		// Botones adicionales
+		if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
 			quality = QualitySettings.names [0];
 			QualitySettings.SetQualityLevel (0);
 		}
-		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 40, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
+		if (GUI.Button(new Rect(0, Screen.height-buttonHeight, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
 			quality = QualitySettings.names [QualitySettings.names.Length-1];
 			QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);
 		}
-		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, 120, buttonWitdh, buttonHeight), "Show Log")) {
+		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Show Log")) {
 			displayLog = !displayLog;
 		}
-		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, 160, buttonWitdh, buttonHeight), "Quit")) {
+		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight, buttonWitdh, buttonHeight), "Quit")) {
 			Application.Quit();
 		}
 
 		if (displayLog)
 			GUI.TextArea(new Rect(10,10, Screen.width-20, Screen.height-20), logContent);
+	}
+
+
+	/** Carga de un nivel reiniciando valores */
+	protected void loadLevel(string levelName) {
+		FPS.info = "";
+		logContent = "";
+		SceneManager.LoadScene (levelName);
 	}
 }
