@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class Factory : MonoBehaviour {
 
+	public float randomRangeX = 1;
+	public float randomRangeY = 1;
+	public float randomRangeZ = 1;
+
 	/** Objeto a utilizar */
 	public Transform objeto;
 
@@ -39,7 +43,7 @@ public class Factory : MonoBehaviour {
 			if (incrementFactor == 1)
 				instanceQty++;
 			for (int i = 1; i <= instanceQty - oldQty; i++) {
-				Instantiate (objeto, new Vector3 (Random.Range(-1f, 2f), 0, Random.Range(-1f, 2f)), Quaternion.identity);
+				Instantiate (objeto, new Vector3 (Random.Range(-1f * randomRangeX, 1f * randomRangeX), Random.Range(-1f * randomRangeY, 1f * randomRangeY), Random.Range(-1f * randomRangeZ, 1f * randomRangeZ)), Quaternion.identity);
 			}
 			elapsedTime = 0;	
 			FPS.info = "Qty: " + instanceQty;
