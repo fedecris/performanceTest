@@ -26,35 +26,39 @@ public class Menu : MonoBehaviour {
 	void OnGUI() {
 
 		// Test Set
-		if (GUI.Button(new Rect(0, 0, buttonWitdh, buttonHeight), "Test1. Basic mesh rendering")) {
-			loadLevel("Test01");
-		}
-		if (GUI.Button(new Rect(0, 40, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
-			loadLevel("Test02");
-		}
-		if (GUI.Button(new Rect(0, 80, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
-			loadLevel("Test03");
-		}
-		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 0, buttonWitdh, buttonHeight), "Test4. Textures")) {
-			loadLevel("Test04");
-		}
-		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 40, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
-			loadLevel("Test05");
-		}
-		if (GUI.Button(new Rect(Screen.width-buttonWitdh, 80, buttonWitdh, buttonHeight), "Test6. Physics")) {
-			loadLevel("Test06");
+		if (!displayLog) {
+			if (GUI.Button (new Rect (0, 0, buttonWitdh, buttonHeight), "Test1. Basic mesh rendering")) {
+				loadLevel ("Test01");
+			}
+			if (GUI.Button (new Rect (0, 40, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
+				loadLevel ("Test02");
+			}
+			if (GUI.Button (new Rect (0, 80, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
+				loadLevel ("Test03");
+			}
+			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 0, buttonWitdh, buttonHeight), "Test4. Textures")) {
+				loadLevel ("Test04");
+			}
+			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 40, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
+				loadLevel ("Test05");
+			}
+			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 80, buttonWitdh, buttonHeight), "Test6. Physics")) {
+				loadLevel ("Test06");
+			}
+
+			// Calidad de render
+			if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
+				quality = QualitySettings.names [0];
+				QualitySettings.SetQualityLevel (0);
+			}
+			if (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
+				quality = QualitySettings.names [QualitySettings.names.Length-1];
+				QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);
+			}
 		}
 
-		// Botones adicionales
-		if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
-			quality = QualitySettings.names [0];
-			QualitySettings.SetQualityLevel (0);
-		}
-		if (GUI.Button(new Rect(0, Screen.height-buttonHeight, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
-			quality = QualitySettings.names [QualitySettings.names.Length-1];
-			QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);
-		}
-		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Show Log")) {
+
+		if  (GUI.Button(new Rect(0, Screen.height-buttonHeight, buttonWitdh, buttonHeight), "Show Log")) {
 			displayLog = !displayLog;
 		}
 		if  (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight, buttonWitdh, buttonHeight), "Quit")) {
@@ -62,7 +66,7 @@ public class Menu : MonoBehaviour {
 		}
 
 		if (displayLog)
-			GUI.TextArea(new Rect(10,10, Screen.width-20, Screen.height-20), logContent);
+			GUI.TextArea(new Rect(0,0, Screen.width, Screen.height-buttonHeight), logContent);
 	}
 
 
