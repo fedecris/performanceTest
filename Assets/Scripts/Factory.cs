@@ -8,6 +8,8 @@ public class Factory : MonoBehaviour {
 	public float randomRangeY = 1;
 	public float randomRangeZ = 1;
 
+	public bool isLight = false;
+
 	/** Objeto a utilizar */
 	public Transform objeto;
 
@@ -43,7 +45,11 @@ public class Factory : MonoBehaviour {
 			if (incrementFactor == 1)
 				instanceQty++;
 			for (int i = 1; i <= instanceQty - oldQty; i++) {
-				Instantiate (objeto, new Vector3 (Random.Range(-1f * randomRangeX, 1f * randomRangeX), Random.Range(-1f * randomRangeY, 1f * randomRangeY), Random.Range(-1f * randomRangeZ, 1f * randomRangeZ)), Quaternion.identity);
+				Object anObject = Instantiate (objeto, new Vector3 (Random.Range(-1f * randomRangeX, 1f * randomRangeX), Random.Range(-1f * randomRangeY, 1f * randomRangeY), Random.Range(-1f * randomRangeZ, 1f * randomRangeZ)), Quaternion.identity);
+				if (isLight) {
+					((Light)(((Transform)anObject).GetComponentInChildren<Light>())).color  = new Color (Random.Range (0, 255), Random.Range (0, 255), Random.Range (0, 255));
+					((Light)(((Transform)anObject).GetComponentInChildren<Light> ())).intensity = .001f;
+				}
 			}
 			elapsedTime = 0;	
 			FPS.info = "Qty: " + instanceQty;
