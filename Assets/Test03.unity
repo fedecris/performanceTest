@@ -315,6 +315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43273e68055cfc40bb0b47046d0d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomRangeX: 1
+  randomRangeY: 1
+  randomRangeZ: 1
   objeto: {fileID: 493022, guid: 30b240c7af7962b4ba40943aa071b717, type: 2}
   incrementFactor: 2
 --- !u!114 &1702888027
