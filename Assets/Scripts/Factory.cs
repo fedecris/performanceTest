@@ -18,7 +18,7 @@ public class Factory : MonoBehaviour {
 	/** Factor de crecimiento.  Por ejemplo Si es 2, se van duplicando (1, 2, 4, 8...). Si es 10 crece un orden de magnitud cada vez, etc. (1, 10, 100, 1000...) */
 	public int incrementFactor = 2;
 	/** Limite de objetos a crear */
-	protected int maxObjects = 10000;
+	protected int maxObjects = 8192;
 
 	/** Numero de instancias actual */
 	protected int instanceQty = 0; 
@@ -34,8 +34,8 @@ public class Factory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (instanceQty > maxObjects)
-			SceneManager.LoadScene ("Main");
+		if (instanceQty >= maxObjects)
+			return;
 		elapsedTime += Time.deltaTime;
 		if (elapsedTime >= intervalSeconds) {
 			int oldQty = instanceQty;

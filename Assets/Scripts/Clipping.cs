@@ -29,8 +29,8 @@ public class Clipping : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (currentClipping > maxClipping)
-			SceneManager.LoadScene ("Main");
+		if (currentClipping >= maxClipping)
+			return;
 		elapsedTime += Time.deltaTime;
 		if (elapsedTime >= intervalSeconds) {
 			elapsedTime = 0;

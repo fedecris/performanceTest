@@ -13,7 +13,10 @@ public class FPS : MonoBehaviour {
 	protected int   lastFramesCount = 0;
 	protected int   lastFramesMax = 100;
 
-	protected bool newLogEntry = false;
+	public static bool newLogEntry = false;
+
+	protected float elapsedTime = 0;
+	protected float intervalSeconds = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +25,12 @@ public class FPS : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		elapsedTime += Time.deltaTime;
+		if (elapsedTime >= intervalSeconds) {
+			newLogEntry = true;
+			elapsedTime = 0;	
+		}
+
 		deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
 	}
 
@@ -45,7 +54,6 @@ public class FPS : MonoBehaviour {
 			lastFramesFPSAvg = lastFramesFPSSum / (float)lastFramesMax;
 			lastFramesCount = 0;
 			lastFramesFPSSum = 0;
-			newLogEntry = true;
 		}
 
 		string text = string.Format ("{0:0.0} ms ({1:0} fps {2:0} avg ", msec, fps, lastFramesFPSAvg) + ("Fastest"==Menu.quality?"Lo":"Hi") + " qty) " + info;

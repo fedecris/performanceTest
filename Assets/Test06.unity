@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009015673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -120, z: 0}
+  m_LocalPosition: {x: 0, y: -150, z: 0}
   m_LocalScale: {x: 120, y: 200, z: 120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1255578528}
   m_LocalRotation: {x: 0.548035, y: 0, z: 0, w: 0.8364554}
-  m_LocalPosition: {x: 0, y: 36.7, z: -48.7}
+  m_LocalPosition: {x: 0, y: 5, z: -48.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 66.4646, y: 0, z: 0}
   m_Children: []
@@ -261,9 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43273e68055cfc40bb0b47046d0d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomRangeX: 20
-  randomRangeY: 20
-  randomRangeZ: 20
+  randomRangeX: 30
+  randomRangeY: 50
+  randomRangeZ: 30
+  isLight: 0
   objeto: {fileID: 407356, guid: abbbe7b472e171749abdbd2eac65db8b, type: 2}
   incrementFactor: 2
 --- !u!114 &1255578535
