@@ -185,9 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43273e68055cfc40bb0b47046d0d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomRangeX: 5
-  randomRangeY: 5
-  randomRangeZ: 5
+  randomRangeX: 10
+  randomRangeY: 10
+  randomRangeZ: 10
+  isLight: 0
   objeto: {fileID: 448124, guid: 1fb5d04c4bd193346b9e2f609d57cb11, type: 2}
   incrementFactor: 2
 --- !u!114 &1068401858
