@@ -14,7 +14,7 @@ public class Factory : MonoBehaviour {
 	public Transform objeto;
 
 	/** Segundos antes de incrementar */
-	protected float intervalSeconds = 10;
+	protected float intervalSeconds = 20;
 	/** Factor de crecimiento.  Por ejemplo Si es 2, se van duplicando (1, 2, 4, 8...). Si es 10 crece un orden de magnitud cada vez, etc. (1, 10, 100, 1000...) */
 	public int incrementFactor = 2;
 	/** Limite de objetos a crear */
