@@ -9,11 +9,11 @@ public class Clipping : MonoBehaviour {
 	public Camera cam;
 
 	/** Segundos antes de incrementar */
-	protected float intervalSeconds = 20;
+	public float intervalSeconds = 20;
 	/** Incremento.   */
-	protected int increment = 100;
+	public int increment = 100;
 	/** Limite de objetos a crear */
-	protected int maxClipping = 1500;
+	public int maxClipping = 1500;
 
 	/** Numero de clipping actual */
 	protected int currentClipping = 100; 

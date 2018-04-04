@@ -63,7 +63,7 @@ public class FPS : MonoBehaviour {
 			newLogEntry = false;
 		}
 
-		if (GUI.Button(new Rect(w-100, h-40, 100, 40), "STOP")) {
+		if (GUI.Button(new Rect(w-200, h-80, 200, 80), "STOP")) {
 			SceneManager.LoadScene ("Main");
 		}
 	}

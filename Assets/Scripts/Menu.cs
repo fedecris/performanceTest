@@ -9,14 +9,14 @@ public class Menu : MonoBehaviour {
 	public static string logContent = "";
 
 	protected static int buttonWitdh = Screen.width / 2 - 10;
-	protected static int buttonHeight = 40;
+	protected static int buttonHeight = 100;
 	protected static bool displayLog = false;
 
 	// Use this for initialization
 	void Start () {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-		quality = QualitySettings.names [0];
-		QualitySettings.SetQualityLevel (0);	
+		quality = QualitySettings.names [1];
+		QualitySettings.SetQualityLevel (1);	
 	}
 	
 	// Update is called once per frame
@@ -31,19 +31,19 @@ public class Menu : MonoBehaviour {
 			if (GUI.Button (new Rect (0, 0, buttonWitdh, buttonHeight), "Test1. Basic mesh rendering")) {
 				loadLevel ("Test01");
 			}
-			if (GUI.Button (new Rect (0, 40, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
+			if (GUI.Button (new Rect (0, buttonHeight, buttonWitdh, buttonHeight), "Test2. Complex mesh rendering")) {
 				loadLevel ("Test02");
 			}
-			if (GUI.Button (new Rect (0, 80, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
+			if (GUI.Button (new Rect (0, buttonHeight*2, buttonWitdh, buttonHeight), "Test3. Lights & Shadows")) {
 				loadLevel ("Test03");
 			}
 			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 0, buttonWitdh, buttonHeight), "Test4. Textures")) {
 				loadLevel ("Test04");
 			}
-			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 40, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
+			if (GUI.Button (new Rect (Screen.width - buttonWitdh, buttonHeight, buttonWitdh, buttonHeight), "Test5. Particle systems")) {
 				loadLevel ("Test05");
 			}
-			if (GUI.Button (new Rect (Screen.width - buttonWitdh, 80, buttonWitdh, buttonHeight), "Test6. Physics")) {
+			if (GUI.Button (new Rect (Screen.width - buttonWitdh, buttonHeight*2, buttonWitdh, buttonHeight), "Test6. Physics")) {
 				loadLevel ("Test06");
 			}
 
