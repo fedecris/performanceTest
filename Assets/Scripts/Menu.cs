@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
+	public static string totalSpawn = "256";
+
 	public static string quality = "Not set";
 
 	public static string logContent = "";
@@ -47,11 +49,14 @@ public class Menu : MonoBehaviour {
 				loadLevel ("Test06");
 			}
 
+
+			totalSpawn = GUI.TextField (new Rect (0, Screen.height - buttonHeight * 2, buttonWitdh, buttonHeight), totalSpawn);
+
 			// Calidad de render
-			if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
-				quality = QualitySettings.names [0];
-				QualitySettings.SetQualityLevel (0);
-			}
+//			if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
+//				quality = QualitySettings.names [0];
+//				QualitySettings.SetQualityLevel (0);
+//			}
 			if (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
 				quality = QualitySettings.names [QualitySettings.names.Length-1];
 				QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);

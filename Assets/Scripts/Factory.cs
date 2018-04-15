@@ -29,7 +29,8 @@ public class Factory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		maxObjects = int.Parse (Menu.totalSpawn);
+		incrementFactor = maxObjects;
 	}
 
 	// Update is called once per frame
