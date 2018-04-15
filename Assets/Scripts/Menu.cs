@@ -17,8 +17,8 @@ public class Menu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-		quality = QualitySettings.names [1];
-		QualitySettings.SetQualityLevel (1);	
+		quality = QualitySettings.names [QualitySettings.names.Length-1];
+		QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);	
 	}
 	
 	// Update is called once per frame
