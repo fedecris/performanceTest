@@ -29,7 +29,7 @@ public class Factory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		maxObjects = int.Parse (Menu.totalSpawn);
+		maxObjects = Menu.totalSpawn;
 		incrementFactor = maxObjects;
 	}
 

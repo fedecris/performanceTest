@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
-	public static string totalSpawn = "256";
+	public static int totalSpawn = 256;
+
+	public static int maxFPS = -1;
 
 	public static string quality = "Not set";
 
@@ -19,11 +21,13 @@ public class Menu : MonoBehaviour {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		quality = QualitySettings.names [QualitySettings.names.Length-1];
 		QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);	
+		QualitySettings.vSyncCount = 0;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+		if(Application.targetFrameRate != maxFPS)
+			Application.targetFrameRate = maxFPS;
 	}
 
 	void OnGUI() {
@@ -50,17 +54,19 @@ public class Menu : MonoBehaviour {
 			}
 
 
-			totalSpawn = GUI.TextField (new Rect (0, Screen.height - buttonHeight * 2, buttonWitdh, buttonHeight), totalSpawn);
+			totalSpawn = int.Parse ( GUI.TextField (new Rect (0, Screen.height - buttonHeight * 2, buttonWitdh, buttonHeight), ""+totalSpawn) ) ;
+
+			maxFPS = int.Parse ( GUI.TextField (new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), ""+maxFPS) );
 
 			// Calidad de render
 //			if (GUI.Button(new Rect(0, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [0])) {
 //				quality = QualitySettings.names [0];
 //				QualitySettings.SetQualityLevel (0);
 //			}
-			if (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
-				quality = QualitySettings.names [QualitySettings.names.Length-1];
-				QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);
-			}
+//			if (GUI.Button(new Rect(Screen.width-buttonWitdh, Screen.height-buttonHeight*2, buttonWitdh, buttonHeight), "Quality: " + QualitySettings.names [QualitySettings.names.Length-1])) {
+//				quality = QualitySettings.names [QualitySettings.names.Length-1];
+//				QualitySettings.SetQualityLevel (QualitySettings.names.Length-1);
+//			}
 		}
 
 
