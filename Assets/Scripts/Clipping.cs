@@ -20,11 +20,17 @@ public class Clipping : MonoBehaviour {
 	/** Tiempo desde ultimo incremento */
 	protected float elapsedTime = 0;
 
+	/** Objeto a utilizar */
+	public Transform objeto;
 
 
 	// Use this for initialization
 	void Start () {
-		cam.farClipPlane = currentClipping;
+		// El clipping plane ya no tiene validez para estos tests
+		cam.farClipPlane = Menu.totalSpawn * 10;
+		// La posicion del objeto complejo se determina medianta el campo 
+		// utilizado en los otros tests para especificar el numero de objetos
+		objeto.position = new Vector3 (0, 0, Menu.totalSpawn);
 	}
 	
 	// Update is called once per frame
@@ -37,8 +43,8 @@ public class Clipping : MonoBehaviour {
 			currentClipping = currentClipping + increment;
 			cam.farClipPlane = currentClipping;
 
-			FPS.info = "Length: " + currentClipping;
-			Debug.Log ("Length: " + currentClipping);
+			FPS.info = "Length: " + objeto.position.z;
+			Debug.Log ("Length: " + objeto.position.z);
 		}
 	}
 }
